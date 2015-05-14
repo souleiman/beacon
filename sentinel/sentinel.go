@@ -9,42 +9,38 @@ import (
 type config struct {
     Username    string          `json:"username"`
     Passkey     string          `json:"passkey"`
-    Stalk       []string        `json:"stalk"`
-    Channels    []string        `json:"channels"`
     Output      string          `json:"output`
-    ZNC         *znc_config     `json:"znc"`
     IRC         *irc_config     `json:"irc"`
-    StalkSet    set             `json:"-"`
-    ChannelSet  set             `json:"-"`
 }
 
-type proto struct {
-    Host        string          `json:"host"`
-    Port        int             `json:"port"`
-}
-type znc_config struct {
-    proto
+type irc_config struct {
+    Host        string      `json:"host"`
+    Port        int         `json:"port"`
     Password    string      `json:"password"`
     SSL         bool        `json:"ssl"`
     SSL_SKIP    bool        `json:"insecure_ssl_verify_skip"`
-}
-type irc_config struct {
-    proto
     Nick        string      `json:"nick"`
+    Stalk       []string    `json:"stalk"`
+    Channels    []string    `json:"channels"`
+    StalkSet    set         `json:"-"`
+    ChannelSet  set         `json:"-"`
 }
 
 func (c *config) BuildChannelSet() {
-    c.ChannelSet = make(set)
-    for _, channel := range c.Channels {
-        c.ChannelSet[channel] = true
+    channel_set := make(set)
+    for _, channel := range c.IRC.Channels {
+        channel_set[channel] = true
     }
+    c.IRC.ChannelSet = channel_set
 }
 
 func (c *config) BuildStalkSet() {
-    c.StalkSet = make(set)
-    for _, stalk := range c.Stalk {
-        c.StalkSet[stalk] = true
+    stalker := make(set)
+    for _, stalk := range c.IRC.Stalk {
+        stalker[stalk] = true
     }
+
+    c.IRC.StalkSet = stalker
 }
 
 var re *regexp.Regexp
@@ -69,4 +65,7 @@ func init() {
 
     f, _ := ioutil.ReadFile("~/.filter.beacon")
     json.Unmarshal(f, &Filter)
+
+    Config.BuildStalkSet()
+    Config.BuildChannelSet()
 }

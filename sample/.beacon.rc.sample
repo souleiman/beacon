@@ -2,12 +2,13 @@
     "username": "site_nick",
     "passkey": "cafebabe",
     "output": "/path/to/dir/",
-    "stalk": ["midgards"],
-    "channels": ["#channel1", "#channel2"],
-    "znc": {
+    "irc": {
         "host": "znc.address.com",
         "port": 1337,
+        "nick": "nick",
         "password": "refer to your bouncer setting",
+        "stalk": ["midgards"],
+        "channels": ["#channel1", "#channel2"],
         "ssl": true,
         "insecure_ssl_verify_skip": false
     }
