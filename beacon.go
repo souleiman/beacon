@@ -63,6 +63,7 @@ func main() {
         for _, channel := range config.Channels {
             conn.Join(channel)
         }
+        fmt.Println("Connected to Server.")
     })
 
     quit := make(chan bool)
