@@ -1,9 +1,38 @@
 {
-    "internal_only": 1,
-    "maximum_seeders": 5,
-    "allowed_medium": ["WEB-DL", "Blu-ray/HD DVD", "Encode", "Remux", "Capture"],
-    "allowed_resolution": ["720p", "1080i", "1080p"],
-    "allowed_source": ["Blu-ray", "HDTV", "BluRay", "WEB-DL", "Capture"],
-    "allowed_codec": ["H.264", "MPEG-2", "VC-1", "XviD"],
-    "allowed_category": ["Movies", "TV", "Documentary", "Misc/Demo", "Music", "Sport", "XXX"]
+    "always_dl_internal": true,
+    "maximum_seeders": -1,
+    "allowed_medium": {
+        "WEB-DL": true,
+        "Blu-ray/HD DVD": true,
+        "Encode": true,
+        "Remux": true,
+        "Capture": true
+    },
+    "allowed_resolution": {
+        "720p": true,
+        "1080i": true,
+        "1080p": true
+    },
+    "allowed_source": {
+        "Blu-ray": true,
+        "HDTV": true,
+        "BluRay": true,
+        "WEB-DL": true,
+        "Capture": true
+    },
+    "allowed_codec": {
+        "H.264": true,
+        "MPEG-2": true,
+        "VC-1": true,
+        "XviD": true
+    },
+    "allowed_category": {
+        "Movies": true,
+        "TV": true,
+        "Documentary": true,
+        "Misc/Demo": true,
+        "Music": true,
+        "Sport": true,
+        "XXX": true
+    }
 }

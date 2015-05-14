@@ -69,5 +69,4 @@ func init() {
 
     f, _ := ioutil.ReadFile("~/.filter.beacon")
     json.Unmarshal(f, &Filter)
-    Filter.PopulateSets()
 }
