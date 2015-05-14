@@ -52,5 +52,5 @@ func (f *filter) Valid(tor torrent) bool {
     }
 
     add := tor.Additional
-    return f._ResSet[add["resolution"]] && f._MedSet[add["medium"]] && f._CodecSet[add["codec"]] && f._CatSet[add["category"]]
+    return (f._ResSet[add["resolution"]] || tor.Additional["category"] == "Music") && f._MedSet[add["medium"]] && f._CodecSet[add["codec"]] && f._CatSet[add["category"]]
 }

@@ -51,7 +51,7 @@ var re *regexp.Regexp
 var Config config
 var Filter filter
 
-const regex string = "^New Torrent: (?P<torrent>.*?(?P<resolution>\\d+(?:p|i)).*?(?P<source>(?:BluRay|Blu-Ray|HDTV)).*?) - " +
+const regex string = "^New Torrent: (?P<torrent>.*?(?P<resolution>\\d+(?:p|i))?.*?(?P<source>(?:BluRay|Blu-Ray|HDTV|WEB-DL|Capture)).*?) - " +
 "Type: (?P<category>Audio Track|Documentary|Misc/Demo|Movie|Music|Sport|TV|XXX) " +
 "\\((?P<codec>(?:H.264|MPEG-2|VC-1|XviD)), (?P<medium>(?:Blu-ray/HD DVD|Capture|Encode|Remux|WEB-DL))\\) " +
 "((?P<origin>Internal|)! )?- Uploaded by: (?P<uploader>.*?)$"
