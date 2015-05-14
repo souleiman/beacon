@@ -1,0 +1,14 @@
+{
+    "username": "site_nick",
+    "passkey": "cafebabe",
+    "output": "/path/to/dir/",
+    "stalk": ["midgards"],
+    "channels": ["#channel1", "#channel2"],
+    "znc": {
+        "host": "znc.address.com",
+        "port": 1337,
+        "password": "refer to your bouncer setting",
+        "ssl": true,
+        "insecure_ssl_verify_skip": false
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "username": "site_nick",
+    "passkey": "cafebabe",
+    "output": "/path/to/dir/",
+    "stalk": ["midgards"],
+    "channels": ["#channel1", "#channel2"],
+    "irc": {
+        "host": "irc.address.com",
+        "port": 1337,
+        "nick": "irc_nick"
+    }
+}
