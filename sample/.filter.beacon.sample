@@ -5,5 +5,5 @@
     "allowed_resolution": ["720p", "1080i", "1080p"],
     "allowed_source": ["Blu-ray", "HDTV", "BluRay", "WEB-DL", "Capture"],
     "allowed_codec": ["H.264", "MPEG-2", "VC-1", "XviD"],
-    "allowed_category": ["Movies", "TV", "Audio Track", "Documentary", "Misc/Demo", "Music", "Sport", "XXX"]
+    "allowed_category": ["Movies", "TV", "Documentary", "Misc/Demo", "Music", "Sport", "XXX"]
 }

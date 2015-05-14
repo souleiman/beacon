@@ -51,8 +51,8 @@ var re *regexp.Regexp
 var Config config
 var Filter filter
 
-const regex string = "^New Torrent: (?P<torrent>.*?(?P<resolution>\\d+(?:p|i))?.*?(?P<source>(?:BluRay|Blu-Ray|HDTV|WEB-DL|Capture)).*?) - " +
-"Type: (?P<category>Audio Track|Documentary|Misc/Demo|Movie|Music|Sport|TV|XXX) " +
+const regex string = "^New Torrent: (?P<torrent>.*?(?P<resolution>\\d+(?:p|i)).*?(?P<source>(?:BluRay|Blu-Ray|HDTV|WEB-DL|Capture)).*?) - " +
+"Type: (?P<category>Music|Documentary|Misc/Demo|Movie|Sport|TV|XXX) " +
 "\\((?P<codec>(?:H.264|MPEG-2|VC-1|XviD)), (?P<medium>(?:Blu-ray/HD DVD|Capture|Encode|Remux|WEB-DL))\\) " +
 "((?P<origin>Internal|)! )?- Uploaded by: (?P<uploader>.*?)$"
 
@@ -64,6 +64,7 @@ var origin map[string]int = map[string]int{"Internal": 1}
 type params map[string]string
 type set map[string]bool
 func init() {
+    println(regex)
     c, _ := ioutil.ReadFile("~/.beaconrc")
     json.Unmarshal(c, &Config)
 

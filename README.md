@@ -1,6 +1,6 @@
 beacon
 =========
-Filters and Parses IRC on #HDBits and downloads the announcements based on the filtering requirements
+Filters and Parses IRC on #HDBits and downloads the announcements based on the filtering requirements for Video extraction. *Audio Track not supported*
 
 Requirements
 ------------
