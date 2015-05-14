@@ -58,10 +58,10 @@ Now the last step is to finalize the filtering options.
 
 Similar to the previous configuration, however for these settings you are only removing what you do not want. It should be noted that, the filters behave very specific.
 
-    internal_only — if set to 1 and any torrent that's considered internal will automatically be snatched.
+    always_dl_internal — if set to true and any torrent that's considered internal will automatically be snatched.
     maximum_seeder — An integer value which indicates the maximum number seeders in which to ignore the snatch. Setting this value to anything below 1 inclusively will snatch anything.
     
-For the rest, you may modify the array to refine your snatches, keep in mind and make sure that there's at least one option in each parameter.
+For the rest, you may modify the array to refine your snatches, keep in mind and make sure that there's at least one option in each parameter exists or it will always fail.
 
 Usage
 -------
