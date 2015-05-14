@@ -10,4 +10,4 @@ Requirements
     # Use go install to install checksum package
     go install github.com/souleiman/beacon
 
-    
+Upon installation you will need to make some configuration to begin using beacon. 
