@@ -64,7 +64,6 @@ var origin map[string]int = map[string]int{"Internal": 1}
 type params map[string]string
 type set map[string]bool
 func init() {
-    println(regex)
     c, _ := ioutil.ReadFile("~/.beaconrc")
     json.Unmarshal(c, &Config)
 
