@@ -7,7 +7,7 @@ type filter struct {
     Mediums     set     `json:"allowed_medium"`
     Codecs      set     `json:"allowed_codec"`
     Category    set     `json:"allowed_category"`
-
+    Uploader    set     `json:"allowed_uploader"`
 }
 
 func (f *filter) Valid(tor torrent) bool {
@@ -20,5 +20,6 @@ func (f *filter) Valid(tor torrent) bool {
     }
 
     add := tor.Additional
-    return f.Resolutions[add["resolution"]] && f.Mediums[add["medium"]] && f.Codecs[add["codec"]] && f.Category[add["category"]]
+   	allow := f.Resolutions[add["resolution"]] && f.Mediums[add["medium"]] && f.Codecs[add["codec"]] && f.Category[add["category"]]
+   	return (len(f.Uploader) == 0 || f.Uploader[add["uploader"]]) && allow
 }
