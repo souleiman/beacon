@@ -40,6 +40,7 @@ ssl|bool| If you want to connect to the server with ssl
 insecure_ssl_verify_skip|bool| If you receive an error x509 or you have an unknown certificate, set this to true, otherwise false.
 stalk|[]string| List of users to watch out for, this is most likely midgards.
 *channels|[]string| Only specify the list of channels that you want beacon to keep an eye on. Make sure to include #
+commands|[][]string| For each commands, will consists of a command that you will send to a user. So, for example, first parameters will contain the command, "msg" for example. Followed by the target who to "msg" and followed by the message you want to send. This is useful for cases when you want to join a channel that requires invitation.
 
 
 ### ZNC Integration
