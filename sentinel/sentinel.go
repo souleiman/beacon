@@ -1,6 +1,7 @@
 package sentinel
 
 import (
+    "path"
     "regexp"
     "io/ioutil"
     "encoding/json"
@@ -60,10 +61,10 @@ var origin map[string]int = map[string]int{"Internal": 1}
 type params map[string]string
 type set map[string]bool
 func init() {
-    c, _ := ioutil.ReadFile("~/.beaconrc")
+    c, _ := ioutil.ReadFile(path.Join("~/", ".beaconrc"))
     json.Unmarshal(c, &Config)
 
-    f, _ := ioutil.ReadFile("~/.filter.beacon")
+    f, _ := ioutil.ReadFile(path.Join("~/", ".filter.beacon"))
     json.Unmarshal(f, &Filter)
 
     Config.BuildStalkSet()
