@@ -7,7 +7,7 @@ Requirements
 * Go 1.4.x or greater
 
 ## Installation
-    # Use go install to install checksum package
+    # Use go install to install beacon package
     go install github.com/souleiman/beacon
 
 Upon installation you will need to make some configuration to begin using beacon. The following set assumes you have your Go environment setup properly specifically your gopaths, if not, here https://golang.org/doc/code.html. 
