@@ -5,6 +5,7 @@ import (
     "regexp"
     "io/ioutil"
     "encoding/json"
+    "github.com/davecgh/go-spew/spew"
 )
 
 type config struct {
@@ -63,6 +64,7 @@ type set map[string]bool
 func init() {
     c, _ := ioutil.ReadFile(path.Join("~/", ".beaconrc"))
     json.Unmarshal(c, &Config)
+    spew.Dump(Config)
 
     f, _ := ioutil.ReadFile(path.Join("~/", ".filter.beacon"))
     json.Unmarshal(f, &Filter)
