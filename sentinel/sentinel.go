@@ -14,7 +14,7 @@ type config struct {
     Output      string          `json:"output`
     IRC         *irc_config     `json:"irc"`
 }
-
+type commands []string
 type irc_config struct {
     Host        string      `json:"host"`
     Port        int         `json:"port"`
@@ -24,6 +24,7 @@ type irc_config struct {
     Nick        string      `json:"nick"`
     Stalk       []string    `json:"stalk"`
     Channels    []string    `json:"channels"`
+    Commands    []commands  `json:"commands"`
     StalkSet    set         `json:"-"`
     ChannelSet  set         `json:"-"`
 }
@@ -61,10 +62,11 @@ var origin map[string]int = map[string]int{"Internal": 1}
 
 type params map[string]string
 type set map[string]bool
+
 func init() {
-    usr, _ := user.Current()
-    c, _ := ioutil.ReadFile(path.Join(usr.HomeDir, ".beaconrc"))
-    f, _ := ioutil.ReadFile(path.Join(usr.HomeDir, ".filter.beacon"))
+    u, _ := user.Current()
+    c, _ := ioutil.ReadFile(path.Join(u.HomeDir, ".beaconrc"))
+    f, _ := ioutil.ReadFile(path.Join(u.HomeDir, ".filter.beacon"))
 
     json.Unmarshal(c, &Config)
     json.Unmarshal(f, &Filter)

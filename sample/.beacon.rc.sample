@@ -10,6 +10,7 @@
         "stalk": ["midgards"],
         "channels": ["#channel1", "#channel2"],
         "ssl": true,
-        "insecure_ssl_verify_skip": false
+        "insecure_ssl_verify_skip": false,
+        "commands": [["msg", "nickserv",  "message"], ["msg", "someone", "message"]]
     }
 }

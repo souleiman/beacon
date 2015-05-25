@@ -27,8 +27,9 @@ func main() {
     c := irc.Client(cfg)
 
 
-    c.HandleFunc("privmsg", func (conn *irc.Conn, line *irc.Line) {
+    c.HandleFunc(irc.PRIVMSG, func(conn *irc.Conn, line *irc.Line) {
         message := line.Args[1]
+        fmt.Println(message)
         if len(config.IRC.Channels) == 0 || (config.IRC.StalkSet[line.Nick] && config.IRC.ChannelSet[line.Target()]) {
             if !strings.HasPrefix(message, "New Torrent:") {
                 return
@@ -45,18 +46,36 @@ func main() {
         }
     })
 
-    c.HandleFunc("connected", func (conn *irc.Conn, line *irc.Line) {
+    c.HandleFunc(irc.CONNECTED, func(conn *irc.Conn, line *irc.Line) {
+        fmt.Println("Connected to Server.")
+
         if config.IRC.Channels == nil {
             return
+        }
+
+        for _, commands := range config.IRC.Commands {
+            if commands[0] == "msg" {
+                conn.Privmsg(commands[1], commands[2])
+            }
         }
         for _, channel := range config.IRC.Channels {
             conn.Join(channel)
         }
-        fmt.Println("Connected to Server.")
+    })
+
+    c.HandleFunc(irc.INVITE, func(conn *irc.Conn, line *irc.Line) {
+        message := line.Args[1]
+        from := strings.Split(line.Src, "!")[0]
+        if !config.IRC.StalkSet[from] {
+            return
+        }
+
+        conn.Join(message)
+        fmt.Printf("Invited to %s by %s\n", message, from)
     })
 
     quit := make(chan bool)
-    c.HandleFunc("disconnected", func (conn *irc.Conn, line *irc.Line) {
+    c.HandleFunc(irc.DISCONNECTED, func(conn *irc.Conn, line *irc.Line) {
         quit <- true
     })
 
