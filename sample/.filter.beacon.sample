@@ -34,5 +34,6 @@
         "Music": true,
         "Sport": true,
         "XXX": true
-    }
+    },
+    "allowed_uploader": {}
 }
